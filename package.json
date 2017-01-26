@@ -1,17 +1,14 @@
 {
-  "name": "Scroll Past EOF",
-  "version": "0.0.1",
+  "title": "Scroll Past EOF",
+  "name": "brackets-scroll-past-eof",
+  "version": "0.0.3",
   "description": "A plugin for Brackets which allows you to scroll below the document, stopping at the last line.",
-  "main": "index.js",
+  "main": "main.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/meszaros-lajos-gyorgy/brackets-scroll-past-eof.git"
   },
-  "keywords": [
-    "brackets",
-    "scroll-past-eof"
-  ],
-  "author": "Lajos Meszaros",
+  "author": "Lajos Meszaros (https://github.com/meszaros-lajos-gyorgy)",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/meszaros-lajos-gyorgy/brackets-scroll-past-eof/issues"
