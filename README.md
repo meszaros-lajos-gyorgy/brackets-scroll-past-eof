@@ -1,4 +1,4 @@
-# Brackets Scroll past EOF
+# Scroll past EOF
 
 A plugin for [Brackets](https://github.com/adobe/brackets/)
 which allows you to scroll below the document, stopping at the last line at top.

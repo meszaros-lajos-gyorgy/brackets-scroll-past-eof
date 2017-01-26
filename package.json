@@ -1,5 +1,5 @@
 {
-  "name": "brackets-scroll-past-eof",
+  "name": "Scroll Past EOF",
   "version": "0.0.1",
   "description": "A plugin for Brackets which allows you to scroll below the document, stopping at the last line.",
   "main": "index.js",
