@@ -5,7 +5,7 @@ define(function(require, exports, module){
 	'use strict';
 	
 	function getAllPanes(){
-		return Array.from(document.querySelectorAll('#editor-holder .CodeMirror-wrap .CodeMirror-sizer>div'));
+        return Array.from(document.querySelectorAll('#editor-holder .CodeMirror-sizer>div'))
 	}
 	
 	function getLineHeight(pane){
@@ -36,19 +36,29 @@ define(function(require, exports, module){
 	}
 	
 	var WorkspaceManager = brackets.getModule('view/WorkspaceManager');
-	
+    var EditorManager = brackets.getModule('editor/EditorManager');
+    var windowHeight;
+    
+    function resizeAll(){
+        getAllPanes().forEach(function(pane){
+            // var currentScroll = getScrollAmount(pane);
+            // var currentOffset = getOffset(pane);
+            var newOffset = windowHeight - getLineHeight(pane) * 2 - getPaneHeaderHeight(pane);
+
+            setOffset(pane, newOffset);
+
+            // BUG: we have some issues with calculating top
+            // the pane isn't the only one, which has a top, plus brackets
+            // messes around with the height
+            // setScrollAmount(pane, currentScroll - currentOffset + newOffset);
+        });
+    }
+    
 	WorkspaceManager.on('workspaceUpdateLayout', function(event, newHeight){
-		getAllPanes().forEach(function(pane){
-			// var currentScroll = getScrollAmount(pane);
-			// var currentOffset = getOffset(pane);
-			var newOffset = newHeight - getLineHeight(pane) * 2 - getPaneHeaderHeight(pane);
-			
-			setOffset(pane, newOffset);
-			
-			// BUG: we have some issues with calculating top
-			// the pane isn't the only one, which has a top, plus brackets
-			// messes around with the height
-			// setScrollAmount(pane, currentScroll - currentOffset + newOffset);
-		});
+        windowHeight = newHeight;
+        setTimeout(resizeAll, 200);
 	});
+    EditorManager.on('activeEditorChange', function(){
+        setTimeout(resizeAll, 200);
+    });
 });
