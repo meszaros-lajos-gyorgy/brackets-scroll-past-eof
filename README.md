@@ -29,7 +29,7 @@ not resizes properly - the fix is under progress
 
 ### [0.0.4](https://github.com/meszaros-lajos-gyorgy/brackets-scroll-past-eof/releases/tag/0.0.4)
 
-* Added better support for mac by fixing #1
+* Added better support for Mac OSX by fixing [#1](https://github.com/meszaros-lajos-gyorgy/brackets-scroll-past-eof/issues/1)
 
 ### [0.0.3](https://github.com/meszaros-lajos-gyorgy/brackets-scroll-past-eof/releases/tag/0.0.3)
 
